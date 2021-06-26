@@ -3,12 +3,10 @@
 set timeout 20
 set exit_code 0
 
-spawn windscribe status
-
+spawn windscribe viewlog
 expect {
-    "DISCONNECTED" { send_user "Health BAD\n"; set exit_code 5 }
-    "CONNECTED" { send_user "Health OK\n"; set exit_code 0 }
-    eof { send_user "Health BAD\n"; set exit_code 5 }
+    'command "connect" done' { send_user "Health OK, not disconnected"; set exit_code 0 }
+    "disconnect" { send_user "Health BAD\n"; set exit_code 5 }
 }
 
 wait
