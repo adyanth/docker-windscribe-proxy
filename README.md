@@ -2,7 +2,7 @@
 
 This docker image modifies the [wiorca/docker-windscribe](https://github.com/wiorca/docker-windscribe) to make it into a squid proxy.
 
-Any service can use the VPN by using this container as a proxy on port 3129.
+Any service can use the VPN by using this container as a proxy on port 3128.
 
 You need not publish the port if only docker containers will be using it.
 
