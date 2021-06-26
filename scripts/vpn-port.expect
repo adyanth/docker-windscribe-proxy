@@ -9,7 +9,7 @@ expect {
     "Please login to use Windscribe" { send_user "Not logged in\n"; set exit_code 5 }
     "Invalid port*" { send_user "Port is invalid\n"; set exit_code 5 }
     "Default port changed*" { send_user "Port set successfully\n"; set exit_code 0 }
-    eof { send_user "Enexpected EOF\n"; set exit_code 5 }
+    eof { send_user "Enexpected EOF, continuing\n"; set exit_code 0 }
 }
 
 wait
