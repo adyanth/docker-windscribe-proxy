@@ -36,7 +36,7 @@ RUN apt -y update && apt -y dist-upgrade && apt install -y gnupg apt-utils ca-ce
      echo "resolvconf resolvconf/linkify-resolvconf boolean false" | debconf-set-selections && \
      apt -y update && apt -y dist-upgrade && apt install -y windscribe-cli && \
      apt install -y curl net-tools iputils-tracepath && \
-     apt-get install -y squid && \
+     apt-get install -y tinyproxy && \
      apt -y autoremove && apt -y clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
@@ -45,7 +45,7 @@ RUN groupadd -r docker_group  && useradd -r -d /config -g docker_group docker_us
 
 # Add in scripts for health check and start-up
 ADD scripts /opt/scripts/
-ADD squid.conf /etc/squid/
+ADD tinyproxy.conf /etc/tinyproxy/
 
 # Enable the health check for the VPN and app
 HEALTHCHECK --interval=15s --timeout=5s --start-period=30s \
