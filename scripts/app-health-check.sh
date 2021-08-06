@@ -2,9 +2,9 @@
 
 # This script should check the health of your running app.  Return 0 on success, or anything else on failure
 
-HTTP_CODE=$(curl -so /dev/null -w "%{http_code}" http://127.0.0.1:3128/)
+HTTP_CODE=$(curl -so /dev/null -w "%{http_code}" https://adyanth.site/)
 
-if [ ! $HTTP_CODE -eq 400 ]; then
+if [ ! $HTTP_CODE -eq 200 ] && [ ! $HTTP_CODE -eq 429 ]; then
     exit 1;
 fi
 
